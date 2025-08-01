@@ -43,14 +43,9 @@ pip install --upgrade pip
 
 Una vez activado el ambiente virtual, instala las dependencias necesarias:
 
-```bash
-# Instalar cocotb y herramientas de simulación
-pip install cocotb pytest
-```
-
 **Nota**: Si tu proyecto tiene un archivo `requirements.txt`, simplemente ejecuta:
 ```bash
-pip install -r requirements.txt
+pip install -r ./test/requirements.txt
 ```
 
 ## Configuración Inicial
@@ -68,7 +63,7 @@ Edita el archivo `Makefile` y asegúrate de que:
 Ejemplo de configuración:
 ```makefile
 # Nombre de tu módulo (debe coincidir con el módulo en project.v)
-MODULE = project_example
+MODULE = tt_um_project_example
 
 # Archivos fuente de tu proyecto
 PROJECT_SOURCES = ../src/project.v
@@ -83,8 +78,8 @@ TOPLEVEL_LANG = verilog
 Modifica `tb.v` para que el nombre del módulo coincida con tu diseño:
 
 ```verilog
-// Cambiar 'project_example' por el nombre de tu módulo
-project_example version1 (
+// Cambiar 'tt_um_project_example' por el nombre de tu módulo
+tt_um_project_example version1 (
     // ... conexiones ...
 );
 ```

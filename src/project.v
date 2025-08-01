@@ -32,7 +32,7 @@
  * - 8 bits bidireccionales configurables (uio_in/uio_out/uio_oe)
  * - Señales de control estándar (clk, rst_n, ena)
  */
-module project_example (
+module tt_um_project_example (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
     input  wire [7:0] uio_in,   // IOs: Input path
@@ -61,7 +61,8 @@ endmodule
  * INSTRUCCIONES PARA ADAPTAR ESTE MÓDULO A TU PROYECTO:
  * 
  * 1. CAMBIAR EL NOMBRE DEL MÓDULO:
- *    - Reemplaza "project_example" con un nombre descriptivo
+ *    - Reemplaza "tt_um_project_example" con un nombre descriptivo
+ *    - El nombre del módulo principal debe partir con "tt_um_" por ser parte del flujo de Tiny Tapeout
  *    - Actualiza también tb.v para usar el nuevo nombre
  * 
  * 2. IMPLEMENTAR TU LÓGICA:

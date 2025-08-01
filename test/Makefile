@@ -5,7 +5,7 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project_example.v # CAMBIAR: Pon el nombre de tu archivo aquí
+PROJECT_SOURCES = project.v # CAMBIAR: Pon el nombre de tu archivo aquí
 
 ifneq ($(GATES),yes)
 
