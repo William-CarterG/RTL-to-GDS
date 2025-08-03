@@ -10,7 +10,7 @@ project:
   tiles: "1x1"                             # Valores válidos: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 o 8x2
 
   # El nombre de tu módulo principal debe comenzar con "tt_um_". Hazlo único incluyendo tu nombre de usuario:
-  top_module:  "tt_um_project_example"     # Cambia "tt_im_project_example" por un nombre descriptivo
+  top_module:  "tt_um_william_carter_fpga"     # Cambia "tt_im_project_example" por un nombre descriptivo
 
   # Lista tus archivos fuente aquí.
   # Los archivos fuente deben estar en ./src y debes listar cada archivo por separado, uno por línea.
@@ -22,34 +22,34 @@ project:
 # Esta sección es para la hoja de datos/sitio web. Usa nombres descriptivos (ej., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Entradas (ui = user inputs ; estos son ejemplos)
-  ui[0]: "Dato_A[0]"                       # Bit 0 del bus de entrada A
-  ui[1]: "Dato_A[1]"                       # Bit 1 del bus de entrada A
-  ui[2]: "Dato_A[2]"                       # Bit 2 del bus de entrada A
-  ui[3]: "Dato_A[3]"                       # Bit 3 del bus de entrada A
-  ui[4]: "Dato_B[0]"                       # Bit 0 del bus de entrada B
-  ui[5]: "Dato_B[1]"                       # Bit 1 del bus de entrada B
-  ui[6]: "Dato_B[2]"                       # Bit 2 del bus de entrada B
-  ui[7]: "Dato_B[3]"                       # Bit 3 del bus de entrada B
+  ui[0]: "im_write_enable"
+  ui[1]: "im_addr_bit0"
+  ui[2]: "im_addr_bit1"
+  ui[3]: "im_addr_bit2"
+  ui[4]: "im_addr_bit3"
+  ui[5]: "pc_halt"
+  ui[6]: "pc_reset"
+  ui[7]: "execution_mode"                      # Bit 3 del bus de entrada B
 
   # Salidas (uo = user outputs ; estos son ejemplos)
-  uo[0]: "Resultado[0]"                    # Bit 0 del resultado
-  uo[1]: "Resultado[1]"                    # Bit 1 del resultado
-  uo[2]: "Resultado[2]"                    # Bit 2 del resultado
-  uo[3]: "Resultado[3]"                    # Bit 3 del resultado
-  uo[4]: "Resultado[4]"                    # Bit 4 del resultado (para manejar overflow)
-  uo[5]: "Estado[0]"                       # Bit 0 de estado
-  uo[6]: "Estado[1]"                       # Bit 1 de estado
-  uo[7]: "Operación_Completa"              # Indicador de operación completada
+  uo[0]: "pc_bit0"
+  uo[1]: "pc_bit1"
+  uo[2]: "pc_bit2"
+  uo[3]: "pc_bit3"
+  uo[4]: "alu_result_bit0"
+  uo[5]: "alu_result_bit1"
+  uo[6]: "alu_result_bit2"
+  uo[7]: "alu_result_bit3"             # Indicador de operación completada
 
   # Pines bidireccionales (uio = user input/output ; estos son ejemplos)
-  uio[0]: "Modo[0]"                        # Bit 0 de selección de modo
-  uio[1]: "Modo[1]"                        # Bit 1 de selección de modo
-  uio[2]: "Config[0]"                      # Bit 0 de configuración
-  uio[3]: "Config[1]"                      # Bit 1 de configuración
-  uio[4]: "Config[2]"                      # Bit 2 de configuración
-  uio[5]: "Ext_Data[0]"                    # Bit 0 de datos externos
-  uio[6]: "Ext_Data[1]"                    # Bit 1 de datos externos
-  uio[7]: "Ext_Enable"                     # Habilitación de interfaz externa
+  uio[0]: "data_bit0"
+  uio[1]: "data_bit1"
+  uio[2]: "data_bit2"
+  uio[3]: "data_bit3"
+  uio[4]: "data_bit4"
+  uio[5]: "data_bit5"
+  uio[6]: "data_bit6"
+  uio[7]: "data_bit7" 
 
 # No cambies esto!
 yaml_version: 6
