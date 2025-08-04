@@ -7,6 +7,10 @@ TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = project.v # CAMBIAR: Pon el nombre de tu archivo aquí
 
+# Set COCOTB_RESOLVE_X to handle 'x' values in the simulation
+# Options: VALUE_ERROR (default), ZEROS, ONES, RANDOM
+export COCOTB_RESOLVE_X = ZEROS
+
 ifneq ($(GATES),yes)
 
 # RTL simulation:

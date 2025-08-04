@@ -24,24 +24,24 @@ async def test_basic_signals(dut):
     await ClockCycles(dut.clk, 5)
     
     # Check outputs during reset - should show PC=0 in default mode
-    dut._log.info(f"During reset - uo_out (LEDs): {dut.uo_out.value:04b}")
+    dut._log.info(f"During reset - uo_out (LEDs): {dut.uo_out.value}")
     dut._log.info(f"During reset - uio_out: {dut.uio_out.value}")
     
     # Release reset
     dut.rst_n.value = 1
     await ClockCycles(dut.clk, 10)  # Allow CPU to start
     
-    dut._log.info(f"After reset - uo_out (LEDs): {dut.uo_out.value:04b}")
+    dut._log.info(f"After reset - uo_out (LEDs): {dut.uo_out.value}")
     
     # Test 2: Manual reset via ui_in[0]
     dut._log.info("Test 2: Manual reset via SW1")
     dut.ui_in.value = 0b00000001  # SW1 = 1 (Reset active)
     await ClockCycles(dut.clk, 5)
-    dut._log.info(f"Manual reset - uo_out (LEDs): {dut.uo_out.value:04b}")
+    dut._log.info(f"Manual reset - uo_out (LEDs): {dut.uo_out.value}")
     
     dut.ui_in.value = 0b00000000  # Release manual reset
     await ClockCycles(dut.clk, 5)
-    dut._log.info(f"After manual reset - uo_out (LEDs): {dut.uo_out.value:04b}")
+    dut._log.info(f"After manual reset - uo_out (LEDs): {dut.uo_out.value}")
 
 @cocotb.test()
 async def test_display_modes(dut):
@@ -67,7 +67,7 @@ async def test_display_modes(dut):
         
         # Read current LED output
         led_value = dut.uo_out.value & 0x0F  # Lower 4 bits are LEDs
-        dut._log.info(f"Mode {mode} - LED output: {led_value:04b} (decimal: {led_value})")
+        dut._log.info(f"Mode {mode} - LED output: {led_value} (decimal: {led_value})")
         
         # Press SW3 to change mode (SW3 is active LOW, so we need to pulse it)
         if mode < 3:  # Don't press on last iteration
@@ -254,16 +254,16 @@ async def test_pin_directions(dut):
     uio_oe_value = dut.uio_oe.value
     uio_out_value = dut.uio_out.value
     
-    dut._log.info(f"uio_oe (pin directions): {uio_oe_value:08b}")
-    dut._log.info(f"uio_out (bidirectional outputs): {uio_out_value:08b}")
+    dut._log.info(f"uio_oe (pin directions): {uio_oe_value}")
+    dut._log.info(f"uio_out (bidirectional outputs): {uio_out_value}")
     
     # Verify all bidirectional pins are set as inputs (0)
-    assert uio_oe_value == 0, f"All uio pins should be inputs (0), got {uio_oe_value:08b}"
-    assert uio_out_value == 0, f"All uio_out should be 0, got {uio_out_value:08b}"
+    assert uio_oe_value == 0, f"All uio pins should be inputs (0), got {uio_oe_value}"
+    assert uio_out_value == 0, f"All uio_out should be 0, got {uio_out_value}"
     
     # Check that uo_out upper bits are 0 (reserved)
     uo_out_upper = (dut.uo_out.value >> 4) & 0x0F
-    assert uo_out_upper == 0, f"Upper 4 bits of uo_out should be 0, got {uo_out_upper:04b}"
+    assert uo_out_upper == 0, f"Upper 4 bits of uo_out should be 0, got {uo_out_upper}"
 
 @cocotb.test()
 async def test_automatic_vs_manual_clock(dut):
